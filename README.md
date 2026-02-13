@@ -2,7 +2,7 @@
 
 A cinematic, ultra-premium mountain resort website built with React, Tailwind CSS v4, and Framer Motion. This project features immersive storytelling, seasonal fog animations, and a sophisticated design system.
 
-![Mist Peaks Preview](/image.png)
+![Mist Peaks Preview](/public/image.png)
 
 ## ✨ Key Features
 
