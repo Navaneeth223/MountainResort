@@ -17,21 +17,14 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'The Resort', href: '/#about', isExternal: false },
-        { name: 'Rooms', href: '/#rooms', isExternal: false },
-        { name: 'Experiences', href: '/#experiences', isExternal: false },
-        { name: 'Location', href: '/location', isExternal: false },
-        { name: 'Gallery', href: '/#gallery', isExternal: false },
+        { name: 'The Resort', href: '/#about' },
+        { name: 'Rooms', href: '/#rooms' },
+        { name: 'Experiences', href: '/#experiences' },
+        { name: 'Location', href: '/location' },
+        { name: 'Gallery', href: '/#gallery' },
     ];
 
-    const scrollToSection = (id) => {
-        setMobileMenuOpen(false);
-        if (location.pathname !== '/') return;
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'py-4 glass-nav shadow-2xl' : 'py-8 bg-transparent'}`}>
@@ -41,7 +34,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className="flex items-center space-x-2"
                 >
-                    <Link to="/" className="flex items-center space-x-2 outline-none">
+                    <Link to="/" onClick={closeMobileMenu} className="flex items-center space-x-2 outline-none">
                         <div className="w-10 h-10 border-2 border-accent flex items-center justify-center">
                             <span className="text-accent font-serif text-xl">M</span>
                         </div>
@@ -53,32 +46,21 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center space-x-12">
-                    {navLinks.map((link, index) => (
-                        link.href.startsWith('/#') ? (
-                            <button
-                                key={link.name}
-                                onClick={() => scrollToSection(link.href.replace('/#', ''))}
-                                className={`text-sm tracking-[0.15em] uppercase font-medium hover:text-accent transition-colors ${isScrolled ? 'text-primary' : 'text-white/80 hover:text-white'}`}
-                            >
-                                {link.name}
-                            </button>
-                        ) : (
-                            <Link
-                                key={link.name}
-                                to={link.href}
-                                className={`text-sm tracking-[0.15em] uppercase font-medium hover:text-accent transition-colors ${isScrolled ? 'text-primary' : 'text-white/80 hover:text-white'}`}
-                            >
-                                {link.name}
-                            </Link>
-                        )
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            to={link.href}
+                            className={`text-sm tracking-[0.15em] uppercase font-medium hover:text-accent transition-colors ${isScrolled ? 'text-primary' : 'text-white/80 hover:text-white'}`}
+                        >
+                            {link.name}
+                        </Link>
                     ))}
                     <motion.button
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        onClick={() => scrollToSection('booking')}
                         className={`premium-btn text-xs px-6 py-2 ${isScrolled ? '' : 'bg-white/10 text-white border border-white/20 hover:bg-accent'}`}
                     >
-                        Book Now
+                        <Link to="/#booking">Book Now</Link>
                     </motion.button>
                 </div>
 
@@ -105,39 +87,29 @@ const Navbar = () => {
                     >
                         {/* Correct Close Button for Mobile Menu */}
                         <button
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={closeMobileMenu}
                             className="absolute top-8 right-8 text-background/60 hover:text-accent transition-colors p-2"
                         >
                             <X size={32} />
                         </button>
 
                         {navLinks.map((link) => (
-                            link.href.startsWith('/#') ? (
-                                <button
-                                    key={link.name}
-                                    onClick={() => scrollToSection(link.href.replace('/#', ''))}
-                                    className="text-2xl font-serif text-background/80 hover:text-accent transition-colors tracking-widest uppercase"
-                                >
-                                    {link.name}
-                                </button>
-                            ) : (
-                                <Link
-                                    key={link.name}
-                                    to={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-2xl font-serif text-background/80 hover:text-accent transition-colors tracking-widest uppercase"
-                                >
-                                    {link.name}
-                                </Link>
-                            )
+                            <Link
+                                key={link.name}
+                                to={link.href}
+                                onClick={closeMobileMenu}
+                                className="text-2xl font-serif text-background/80 hover:text-accent transition-colors tracking-widest uppercase"
+                            >
+                                {link.name}
+                            </Link>
                         ))}
-                        <motion.button
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => scrollToSection('booking')}
-                            className="premium-btn"
+                        <Link
+                            to="/#booking"
+                            onClick={closeMobileMenu}
+                            className="premium-btn text-center"
                         >
                             Book Your Stay
-                        </motion.button>
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

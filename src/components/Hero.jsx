@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useSeasonalFog } from '../hooks/useSeasonalFog';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const { isFoggySeason } = useSeasonalFog();
@@ -69,7 +70,7 @@ const Hero = () => {
                         Luxury Mountain Retreat
                     </motion.span>
 
-                    <h1 className="text-5xl md:text-8xl lg:text-9xl text-white font-serif leading-tight tracking-tight">
+                    <h1 className="text-4xl md:text-8xl lg:text-9xl text-white font-serif leading-tight tracking-tight whitespace-pre-line">
                         {isFoggySeason ? "Escape Into\nThe Mist" : "Nature In Its\nPurest Form"}
                     </h1>
 
@@ -78,19 +79,19 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
-                        <button
-                            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+                        <Link
+                            to="/#booking"
                             className="premium-btn group flex items-center gap-2"
                         >
                             Book Your Stay
                             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                        <button
-                            onClick={() => document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' })}
+                        </Link>
+                        <Link
+                            to="/#rooms"
                             className="px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-serif text-lg tracking-widest hover:bg-white/20 transition-all uppercase"
                         >
                             Explore Rooms
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

@@ -1,10 +1,22 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MapPage = () => {
     return (
         <section className="pt-32 pb-24 bg-background min-h-screen">
             <div className="container mx-auto px-6">
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="mb-8"
+                >
+                    <Link to="/" className="inline-flex items-center gap-2 text-primary/60 hover:text-accent transition-colors uppercase tracking-[0.2em] text-xs font-medium">
+                        <ArrowLeft className="w-4 h-4" />
+                        Back to Home
+                    </Link>
+                </motion.div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
