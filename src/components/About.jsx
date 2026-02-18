@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import luxuryMountainInterior from '../assets/photos/luxury mountain interior.png';
 
 const About = () => {
     return (
@@ -48,7 +49,7 @@ const About = () => {
                             className="relative z-10 aspect-[4/5] overflow-hidden"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1544134239-16067761008f?auto=format&fit=crop&q=80&w=1000"
+                                src={luxuryMountainInterior}
                                 alt="Luxury Mountain Interior"
                                 className="w-full h-full object-cover grayscale-[20%] hover:scale-110 transition-transform duration-1000"
                             />

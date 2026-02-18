@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import luxuryMountainInterior from '../assets/photos/luxury mountain interior.png';
+import forestViewCottage from '../assets/photos/forest view Cottage.png';
 
 const rooms = [
     {
@@ -11,13 +13,13 @@ const rooms = [
         title: "Mountain Panorama Suite",
         description: "Spacious luxury suite offering 270-degree views of the rugged mountain peaks.",
         price: "$750 / night",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1000",
+        image: luxuryMountainInterior,
     },
     {
         title: "Forest View Cottage",
         description: "A private retreat nestled deep within the forest, featuring a natural stone fireplace.",
         price: "$600 / night",
-        image: "https://images.unsplash.com/photo-1449156001437-37c444baae51?auto=format&fit=crop&q=80&w=1000",
+        image: forestViewCottage,
     },
     {
         title: "Honeymoon Luxury Suite",

@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
+import galleryImage4 from '../assets/photos/Gallery image 4.png';
 
 const images = [
     "https://images.unsplash.com/photo-1518005020250-675f0f0fd174?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1544134239-16067761008f?auto=format&fit=crop&q=80&w=800",
+    galleryImage4,
     "https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&q=80&w=800",
     "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&q=80&w=800",
 ];
